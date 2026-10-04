@@ -1,0 +1,9 @@
+{
+  "view.panel": "Panel",
+  "view.items": "Items",
+  "command.refresh": "Refresh",
+  "command.openSettings": "Open Settings",
+  "command.hello": "Say Hello",
+  "config.title": "Extension Template",
+  "config.exampleSetting": "Example boolean setting."
+}

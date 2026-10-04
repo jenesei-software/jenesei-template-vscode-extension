@@ -1,0 +1,144 @@
+{
+  "name": "extension-template",
+  "displayName": "Extension Template",
+  "description": "A starting point for jenesei-software VS Code extensions: activity bar views, commands, settings, localization, tests, CI and release.",
+  "version": "0.0.1",
+  "publisher": "jenesei-software",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jenesei-software/jenesei-template-vscode-extension"
+  },
+  "bugs": {
+    "url": "https://github.com/jenesei-software/jenesei-template-vscode-extension/issues"
+  },
+  "homepage": "https://github.com/jenesei-software/jenesei-template-vscode-extension#readme",
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=22"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "template",
+    "extension"
+  ],
+  "icon": "resources/icon.png",
+  "main": "./dist/extension.js",
+  "capabilities": {
+    "virtualWorkspaces": false,
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "In an untrusted workspace the panel is read-only."
+    }
+  },
+  "l10n": "./l10n",
+  "activationEvents": [
+    "onStartupFinished",
+    "onView:extensionTemplate.panel"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "extensionTemplate",
+          "title": "Extension Template",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "extensionTemplate": [
+        {
+          "id": "extensionTemplate.panel",
+          "name": "%view.panel%",
+          "type": "webview",
+          "icon": "resources/icon.svg"
+        },
+        {
+          "id": "extensionTemplate.items",
+          "name": "%view.items%",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "extensionTemplate.refresh",
+        "title": "%command.refresh%",
+        "category": "Extension Template",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "extensionTemplate.openSettings",
+        "title": "%command.openSettings%",
+        "category": "Extension Template",
+        "icon": "$(gear)"
+      },
+      {
+        "command": "extensionTemplate.hello",
+        "title": "%command.hello%",
+        "category": "Extension Template"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "extensionTemplate.refresh",
+          "when": "view =~ /^extensionTemplate\\./",
+          "group": "navigation@1"
+        },
+        {
+          "command": "extensionTemplate.openSettings",
+          "when": "view =~ /^extensionTemplate\\./",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "extensionTemplate.exampleSetting": {
+          "type": "boolean",
+          "default": true,
+          "scope": "window",
+          "markdownDescription": "%config.exampleSetting%"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build:prod",
+    "build": "node esbuild.mjs",
+    "build:watch": "node esbuild.mjs --watch",
+    "build:prod": "node esbuild.mjs --production",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "check:registry": "node scripts/check-registry.mjs",
+    "check": "npm run lint && npm run typecheck && npm run check:registry",
+    "l10n:extract": "npx @vscode/l10n-dev export --outDir ./l10n ./src",
+    "test": "node -e \"require('node:fs').rmSync('out',{recursive:true,force:true})\" && tsc -p tsconfig.test.json && node --test \"out/test/*.test.js\"",
+    "pretest:integration": "npm run build:prod && tsc -p tsconfig.test.json",
+    "test:integration": "vscode-test",
+    "vsix": "vsce package",
+    "vsix:publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.14",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^26.6.2",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^4.0.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  },
+  "overrides": {
+    "diff": "^9.0.0",
+    "serialize-javascript": "^7.1.2"
+  }
+}
