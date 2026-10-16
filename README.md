@@ -1,7 +1,6 @@
 # Extension Template
 
 [![Marketplace](https://img.shields.io/badge/Marketplace-Extension%20Template-007ACC?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=jenesei-software.extension-template)
-[![Version](https://img.shields.io/badge/version-0.0.1-2ea44f)](CHANGELOG.md)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-2ea44f)](package.json)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
@@ -9,6 +8,10 @@ A starting point for jenesei-software VS Code extensions. It ships the whole
 toolchain already wired up - activity bar views, commands, settings,
 localization, unit and integration tests, CI and release - so a new extension
 starts from a working, consistent base.
+
+## 🚀 ACTUAL VERSIONS
+
+- no releases yet
 
 ## What is inside
 
