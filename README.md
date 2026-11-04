@@ -9,10 +9,6 @@ toolchain already wired up - activity bar views, commands, settings,
 localization, unit and integration tests, CI and release - so a new extension
 starts from a working, consistent base.
 
-## 🚀 ACTUAL VERSIONS
-
-- no releases yet
-
 ## What is inside
 
 - **Activity bar container** with a webview **Panel** and a native **Items**
